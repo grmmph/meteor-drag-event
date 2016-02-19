@@ -6,6 +6,8 @@ This package extend Meteor Blaze Events to support drag event.
 
 Now you can use `drag` event just like you would use `click` event on the events template helpers.
 
+Demo: http://meteor-drag-event.meteor.com
+
 ## Installation
 
 `$ meteor add grmmph:meteor-drag-event`
