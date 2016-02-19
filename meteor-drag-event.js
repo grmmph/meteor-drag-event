@@ -85,7 +85,7 @@
     }
 
     /**
-     * @desc new event handler to bass into Blaze events
+     * @desc new event handler to pass into Blaze events
      * @param evt {Object} event to pass
      * @param element {DOM Object} draggable dom element
      * @returns extened event handler function
