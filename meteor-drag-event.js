@@ -8,14 +8,18 @@
  */
 
 (function () {
+  if (!Meteor.isClient) {
+    return;
+  }
+
   var MeteorDragEvent = class MeteorDragEvent {
-    constructor(selector, oldHandler) {
+    constructor(rootElem, selector, oldHandler) {
       this.oldHandler = oldHandler; // old event handler from Blaze
       this.selector = selector; // selector defined by the user (e.g. `#my-elem`)
       this.dragEvent = new CustomEvent('drag');
+      this.rootElem = rootElem;
 
       this.selected; // selected element that is been dragged
-      this.elements = $(this.selector); // (J)Queried elements
       this.element; // (J)Queried current selected element
 
       this.posX = 0; // current absolute position X
@@ -103,7 +107,8 @@
      */
     setEvents() {
       var self = this;
-      this.elements.on("drag", function (initialEvent, currentEvent) {
+
+      $(this.rootElem).on('drag', this.selector, function (initialEvent, currentEvent) {
         if (currentEvent) {
           initialEvent.currentEvent = currentEvent;
           initialEvent.targetMouseOn = currentEvent.target;
@@ -111,10 +116,10 @@
         self.handler(initialEvent, this);
       });
 
-      this.elements.on('mousedown', function (evt) {
+
+      $(this.rootElem).on('mousedown', this.selector, function (evt) {
         self.element = $(this);
         evt.targetMouseOn = evt.target;
-
         self.dragstart(this, evt);
         return false;
       });
@@ -136,7 +141,7 @@
     Blaze._DOMBackend.Events.delegateEvents = function (elem, type, selector, handler) {
       if (type === 'drag') {
         $(document).ready(function () {
-          new MeteorDragEvent(selector, handler);
+          new MeteorDragEvent(elem, selector, handler);
         });
       } else {
         oldDelegateEvents.apply(this, arguments);
