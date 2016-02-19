@@ -28,7 +28,7 @@ Template.hello.events({
       console.log('You start dragging!')
     } else if (evt.drag.type === 'dragend') {
       console.log('You stopped dragging!')
-    } else if (evt.drag.type === 'dragend') {
+    } else if (evt.drag.type === 'dragging') {
       console.log('You are dragging!')
     }
 
