@@ -1,5 +1,5 @@
 /**
- * Meteo Drag Event
+ * Meteor Drag Event
  * @author Yonatan Wolowelsky http://grmmph.com
  * @licence MIT
  * @docs https://github.com/grmmph/meteor-drag-event
