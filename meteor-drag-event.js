@@ -51,6 +51,8 @@
     dragend() {
       this.dragType = 'dragend';
       this.selected = null;
+      this.dx = 0;
+      this.dy = 0;
       this.isFirstDragging = true;
       this.element.trigger('drag');
     }
