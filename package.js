@@ -1,6 +1,6 @@
 Package.describe({
   name: 'grmmph:meteor-drag-event',
-  version: '0.0.2',
+  version: '0.0.4',
   // Brief, one-line summary of the package.
   summary: 'Add drag events by extending Blaze event handlers',
   // URL to the Git repository containing the source code for this package.

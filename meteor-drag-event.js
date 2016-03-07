@@ -124,13 +124,13 @@
         return false;
       });
 
-      document.onmousemove = function (evt) {
+      $(document).on('mousemove', function (evt) {
         self.dragging(evt);
-      };
+      });
 
-      document.onmouseup = function (evt) {
+      $(document).on('mouseup', function (evt) {
         self.dragend(evt);
-      }
+      });
     }
   };
 
